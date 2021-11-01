@@ -1,39 +1,40 @@
-Flask Heroku Sample
-====================
+# PDISK UPLOADER BOT
+This is a very simple Telegram Files Rename Bot by [PoweRRockers](t.me/PoweRRockers).
 
-A simple Python Flask example application that's ready to run on Heroku.
+## Features
+- Permanent Custom Thumbnail Support.
+- Very User-Friendly
+- Heroku Deployable 
+More Features coming 🎉
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Development Setup
-
-* `pipenv install`
-
-* `pipenv shell`
-
-* `python app.py`
-
-## Screenshot
-
-![screenshot](https://i.imgur.com/wf74fxY.png)
-
-## Deploy
-
-* `heroku create`
-
-* `heroku addons:create heroku-postgresql:hobby-dev`
-
-* `git push heroku master`
-
-* Note: make sure you run `db.create_all()` to create the tables: 
-```bash
-$ heroku run python
-Python 3.6.8 (default, Jan 29 2019, 19:35:16)
->>> from app import db
->>> db.create_all()
->>> exit()
+### BotFather Commands:
+```
+start - Start Bot
+telepdisk - File to pdisk
+url - Link to pdisk
+upload - Get direct link 
 ```
 
-## Contributors
+### Support Group
+<a href="https://t.me/PoweRRockers"><img src="https://img.shields.io/badge/Telegram-Join%20Telegram%20Group-blue.svg?logo=telegram"></a>
 
-* [Yefim](https://twitter.com/yefim)
+## Deploy to Heroku
+Easy to Deploy to Heroku.
+
+Press Below Button to Deploy!
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AbirHasan2005/Rename-Bot)
+
+### Follow on:
+<p align="left">
+<a href="https://github.com/AbirHasan2005"><img src="https://img.shields.io/badge/GitHub-Follow%20on%20GitHub-inactive.svg?logo=github"></a>
+</p>
+<p align="left">
+<a href="https://twitter.com/AbirHasan2005"><img src="https://img.shields.io/badge/Twitter-Follow%20on%20Twitter-informational.svg?logo=twitter"></a>
+</p>
+<p align="left">
+<a href="https://facebook.com/AbirHasan2005"><img src="https://img.shields.io/badge/Facebook-Follow%20on%20Facebook-blue.svg?logo=facebook"></a>
+</p>
+<p align="left">
+<a href="https://instagram.com/AbirHasan2005"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
+</p>
