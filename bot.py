@@ -11,17 +11,19 @@ import subprocess
 d = os.environ.get("d")
 PDISK_APIKEY= os.environ.get("PDISK_APIKEY")
 client = TelegramClient('anfghohn',int(os.environ.get("APP_ID")),os.environ.get("API_HASH")).start(bot_token=os.environ.get("BOT_TOKEN"))
+
 @client.on(events.NewMessage(pattern='(?i)/start'))
 async def handler(event):
     chat = await event.get_chat()
     await client.send_message(chat, "example /upload file.mp4[filename] link will expire depends on storage weight")
+    await client.send_message(chat,
 
 @client.on(events.NewMessage(pattern='/diskusage'))
 async def handler(event):
     chat = await event.get_chat()
     stat = shutil.disk_usage("/app/templates/download")
     await client.send_message(chat,str(stat))     
-
+    
 @client.on(events.NewMessage(pattern='/url'))
 async def handler(event):
     link =event.text.split(' ')[1]
