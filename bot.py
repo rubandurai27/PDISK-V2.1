@@ -16,7 +16,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 PDISK_API = os.environ.get("PDISK_API", "")
 
 bot = Client('pdisk bot',
-             api_id=API_ID,
+             api_id=APP_ID,
              api_hash=API_HASH,
              bot_token=BOT_TOKEN,
              workers=50,
