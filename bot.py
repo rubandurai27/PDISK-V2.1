@@ -26,7 +26,7 @@ bot = Client('pdisk bot',
 
 START_MSG = f"Hey {message.from_user.first_name} \n I Am A Pdisk Uploader Bot... \n I Can Upload Telegram Files/Direct Link And Return You Back With Pdisk Url..!! \n\n <b>Maintained by</b> : @RUBANDURAI27"
 START_IMG = 'https://telegra.ph/file/29d4cbc0f511a7b73fa78.jpg'
-
+HELP_MSG = "<b>Help Menu </b>\n\nJust Send Me An Direct Download Link To Upload That To Your PDisk ID. You Can Use /upload command to Get Direct Download Link For Telegram Video Files! \n\n <b>Available Commands </b>\n \n /help - How to use me \n /upload - File to Direct link \n /url - Link to Pdisk \n /telepdisk - File to Pdisk \n\n @POWERROCKERS"
 #=============================================================================================================================================
 
 @client.on(events.NewMessage(pattern='(?i)/start'))
@@ -35,7 +35,7 @@ async def handler(event):
     await client.send_message(chat, "START_MSG")
     await client.send_photo(chat, "START_IMG")
 
-@client.on(events.NewMessage(pattern='(?i)/help'))
+@client.on(events.NewMessage(pattern='/help'))
 async def handler(event):
     chat = await event.get_chat()
     await client.send_message(chat, "HELP_MSG")
