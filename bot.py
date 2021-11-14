@@ -9,13 +9,12 @@ import asyncio
 import shutil
 import subprocess
 d = os.environ.get("d")
-PDISK_API= os.environ.get("PDISK_API")
-client = TelegramClient('anfghohn',int(os.environ.get("APP_ID")),os.environ.get("API_HASH")).start(bot_token=os.environ.get("BOT_TOKEN"))
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
-PDISK_API = environ.get('PDISK_API')
+APP_ID = int(os.environ.get("APP_ID", 0))
+API_HASH = os.environ.get("API_HASH", "")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+PDISK_API = os.environ.get("PDISK_API", "")
+
 bot = Client('pdisk bot',
              api_id=API_ID,
              api_hash=API_HASH,
@@ -35,6 +34,11 @@ async def handler(event):
     chat = await event.get_chat()
     await client.send_message(chat, "START_MSG")
     await client.send_photo(chat, "START_IMG")
+
+@client.on(events.NewMessage(pattern='(?i)/help'))
+async def handler(event):
+    chat = await event.get_chat()
+    await client.send_message(chat, "HELP_MSG")
 
 @client.on(events.NewMessage(pattern='/diskusage'))
 async def handler(event):
