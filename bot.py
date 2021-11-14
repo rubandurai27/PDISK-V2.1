@@ -9,14 +9,21 @@ import asyncio
 import shutil
 import subprocess
 d = os.environ.get("d")
-PDISK_APIKEY= os.environ.get("PDISK_APIKEY")
+PDISK_API= os.environ.get("PDISK_API")
 client = TelegramClient('anfghohn',int(os.environ.get("APP_ID")),os.environ.get("API_HASH")).start(bot_token=os.environ.get("BOT_TOKEN"))
+
+#=============================================================================================================================================
+
+START_MSG = f"𝖧𝖺𝗂, \n𝖨'𝗆 𝖺 𝖲𝗂𝗆𝗉𝗅𝖾 𝖳𝖾𝗅𝖾𝗀𝗋𝖺𝗆 𝖡𝗈𝗍 𝖳𝗈 𝖦𝖾𝗍 𝖬𝗈𝗏𝗂𝖾 𝖨𝗇𝖿𝗈 𝖴𝗌𝗂𝗇𝗀 𝖮𝖬𝖣𝖻\n \n𝖲𝖾𝗇𝖽 𝖬𝖾 𝖳𝗁𝖾 𝖬𝗈𝗏𝗂𝖾 𝖭𝖺𝗆𝖾 𝖳𝗈 𝖦𝖾𝗍 𝖨𝗇𝖿𝗈 𝖠𝖻𝗈𝗎𝗍 𝖨𝗍"
+START_IMG = 'https://telegra.ph/file/29d4cbc0f511a7b73fa78.jpg'
+
+#=============================================================================================================================================
 
 @client.on(events.NewMessage(pattern='(?i)/start'))
 async def handler(event):
     chat = await event.get_chat()
-    await client.send_message(chat, "example /upload file.mp4[filename] link will expire depends on storage weight")
-    await client.send_photo(chat, "https://telegra.ph/file/29d4cbc0f511a7b73fa78.jpg")
+    await client.send_message(chat, "START_MSG")
+    await client.send_photo(chat, "START_IMG")
 
 @client.on(events.NewMessage(pattern='/diskusage'))
 async def handler(event):
@@ -29,7 +36,7 @@ async def handler(event):
     link =event.text.split(' ')[1]
     l =event.text.split(' ')[2]
     chat = await event.get_chat()   
-    s = f"http://linkapi.net/open/create_item?api_key={PDISK_APIKEY}&content_src={link}&link_type=link&title={l}"
+    s = f"http://linkapi.net/open/create_item?api_key={PDISK_API}&content_src={link}&link_type=link&title={l}"
     r = requests.get(s).json()
     z=r['data']["item_id"]
     markup  = client.build_reply_markup(Button.url("⚡ PDISK LINK ⚡",f"http://m.pdisk.net/share-video?videoid={z}"))
@@ -49,7 +56,7 @@ async def handler(event):
     #l =link.split('/')[-1]
     l =event.text.split(' ')[1]
     print(l)
-    s = f"http://linkapi.net/open/create_item?api_key={PDISK_APIKEY}&content_src={link}&link_type=link&title={l}"
+    s = f"http://linkapi.net/open/create_item?api_key={PDISK_API}&content_src={link}&link_type=link&title={l}"
     r = requests.get(s).json()
     m=dict(r)
     print(m)
