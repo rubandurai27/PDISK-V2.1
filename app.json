@@ -1,0 +1,36 @@
+{
+    "name": "PdiskV2.1",
+    "logo": "https://telegra.ph//file/8c1b3553a29e74d22ac04.jpg",
+    "description": "Simple Pdisk Uploader bot",
+    "keywords": [
+        "Pdisk",
+        "Uploader"
+    ],
+    "repository": "https://github.com/rubandurai27/PDISK-V2",
+    "website": "telegram.me/PoweRRockers",
+    "env": {
+        "API_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        },
+        "PDISK_API": {
+            "description": "",
+            "required": "True"
+        },
+        "START_IMG": {
+            "description": "",
+            "required": "True"
+        }
+    },
+    "stack": "heroku-20",
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
