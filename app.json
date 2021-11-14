@@ -23,7 +23,7 @@
         },
         "START_IMG": {
             "description": "",
-            "required": "True"
+            "required": ""
         }
     },
     "stack": "heroku-20",
